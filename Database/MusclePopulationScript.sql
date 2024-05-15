@@ -1,0 +1,16 @@
+INSERT INTO muscle (name) VALUES ('Traps');
+INSERT INTO muscle (name) VALUES ('Anterior Deltoid');
+INSERT INTO muscle (name) VALUES ('Lateral Deltoid');
+INSERT INTO muscle (name) VALUES ('Posterior Deltoid');
+INSERT INTO muscle (name) VALUES ('Biceps');
+INSERT INTO muscle (name) VALUES ('Triceps');
+INSERT INTO muscle (name) VALUES ('Forearm');
+INSERT INTO muscle (name) VALUES ('Pectoralis');
+INSERT INTO muscle (name) VALUES ('Core');
+INSERT INTO muscle (name) VALUES ('Upper Back');
+INSERT INTO muscle (name) VALUES ('Lats');
+INSERT INTO muscle (name) VALUES ('Lower Back');
+INSERT INTO muscle (name) VALUES ('Glutes');
+INSERT INTO muscle (name) VALUES ('Hamstrings');
+INSERT INTO muscle (name) VALUES ('Quads');
+INSERT INTO muscle (name) VALUES ('Calves');
