@@ -17,7 +17,7 @@ namespace BodyForgeServer.Repository.Implementation
 
         public void delete(long id)
         {
-            Workout workout = _context.Workout.First(w => w.id == id);
+            Workout workout = _context.Workout.FirstOrDefault(w => w.id == id);
             if (workout != null)
             {
                 _context.Workout.Remove(workout);
@@ -27,7 +27,7 @@ namespace BodyForgeServer.Repository.Implementation
 
         public Workout getById(long id)
         {
-            Workout workout = _context.Workout.First(w => w.id == id);
+            Workout workout = _context.Workout.FirstOrDefault(w => w.id == id);
             if (workout == null)
             {
                 return null;
@@ -56,7 +56,7 @@ namespace BodyForgeServer.Repository.Implementation
 
         public void update(Workout workout)
         {
-            Workout w = _context.Workout.First(wo => wo.id == workout.id);
+            Workout w = _context.Workout.FirstOrDefault(wo => wo.id == workout.id);
             if (w != null)
             {
                 w.name = workout.name;

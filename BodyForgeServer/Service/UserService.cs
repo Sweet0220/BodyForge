@@ -22,6 +22,11 @@ namespace BodyForgeServer.Service
             return userRepository.getUserById(id);
         }
 
+        public Users getByUsername(string username)
+        {
+            return userRepository.getUserByUsername(username);
+        }
+
         public void addUser(Users user)
         {
             userRepository.addUser(user);

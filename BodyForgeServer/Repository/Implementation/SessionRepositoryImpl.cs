@@ -26,7 +26,7 @@ namespace BodyForgeServer.Repository.Implementation
 
         public void deleteById(long id)
         {
-            Session session = _context.Session.First(s => s.id == id);
+            Session session = _context.Session.FirstOrDefault(s => s.id == id);
             if (session != null)
             {
                 _context.Session.Remove(session);
@@ -36,7 +36,7 @@ namespace BodyForgeServer.Repository.Implementation
 
         public Session getById(long id)
         {
-            Session session = _context.Session.First(s => s.id == id);
+            Session session = _context.Session.FirstOrDefault(s => s.id == id);
             if (session == null)
             {
                 return null;
@@ -51,7 +51,7 @@ namespace BodyForgeServer.Repository.Implementation
 
         public void update(Session session)
         {
-            Session sessionToUpdate = _context.Session.First(s => s.id == session.id);
+            Session sessionToUpdate = _context.Session.FirstOrDefault(s => s.id == session.id);
             if (sessionToUpdate != null)
             {
                 sessionToUpdate.reps = session.reps;

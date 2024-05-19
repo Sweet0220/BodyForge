@@ -15,9 +15,14 @@ namespace BodyForgeServer.Repository.Implementation
             _context = new BodyForgeContext();
         }
 
+        public List<Muscle> getAll()
+        {
+            return _context.Muscle.ToList();
+        }
+
         public Muscle getById(long id)
         {
-            Muscle muscle = _context.Muscle.First(m => m.id == id);
+            Muscle muscle = _context.Muscle.FirstOrDefault(m => m.id == id);
             if (muscle == null)
             {
                 return null;

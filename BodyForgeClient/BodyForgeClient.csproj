@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +48,86 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Connected Services\AuthenticationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ExerciseService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MuscleService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\SessionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TargetService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\UserService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\WorkoutService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Exercise.cs" />
+    <Compile Include="Entity\Muscle.cs" />
+    <Compile Include="Entity\Session.cs" />
+    <Compile Include="Entity\Target.cs" />
+    <Compile Include="Entity\Users.cs" />
+    <Compile Include="Entity\Workout.cs" />
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WorkoutAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WorkoutAdd.Designer.cs">
+      <DependentUpon>WorkoutAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WorkoutMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WorkoutMenu.Designer.cs">
+      <DependentUpon>WorkoutMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CurrentUser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WorkoutAdd.resx">
+      <DependentUpon>WorkoutAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WorkoutMenu.resx">
+      <DependentUpon>WorkoutMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +137,92 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Connected Services\AuthenticationService\AuthenticationWebService.wsdl" />
+    <None Include="Connected Services\AuthenticationService\BodyForgeClient.AuthenticationService.loginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ExerciseService\BodyForgeClient.ExerciseService.Exercise.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ExerciseService\BodyForgeClient.ExerciseService.getByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ExerciseService\ExerciseWebService.wsdl" />
+    <None Include="Connected Services\MuscleService\BodyForgeClient.MuscleService.getAllResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MuscleService\BodyForgeClient.MuscleService.getByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MuscleService\BodyForgeClient.MuscleService.Muscle.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MuscleService\MuscleWebService.wsdl" />
+    <None Include="Connected Services\SessionService\BodyForgeClient.SessionService.addResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SessionService\BodyForgeClient.SessionService.getByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SessionService\BodyForgeClient.SessionService.getByWorkoutIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SessionService\BodyForgeClient.SessionService.Session.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SessionService\BodyForgeClient.SessionService.updateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SessionService\SessionWebService.wsdl" />
+    <None Include="Connected Services\TargetService\BodyForgeClient.TargetService.getByExerciseIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TargetService\BodyForgeClient.TargetService.getByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TargetService\BodyForgeClient.TargetService.getByMuscleIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TargetService\BodyForgeClient.TargetService.Target.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TargetService\TargetWebService.wsdl" />
+    <None Include="Connected Services\UserService\BodyForgeClient.UserService.addUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserService\BodyForgeClient.UserService.getByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserService\BodyForgeClient.UserService.getByUsernameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserService\BodyForgeClient.UserService.Users.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserService\UserWebService.wsdl" />
+    <None Include="Connected Services\WorkoutService\BodyForgeClient.WorkoutService.addWorkoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkoutService\BodyForgeClient.WorkoutService.deleteWorkoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkoutService\BodyForgeClient.WorkoutService.getByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkoutService\BodyForgeClient.WorkoutService.getByUserIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkoutService\BodyForgeClient.WorkoutService.getTemplatesByUserIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkoutService\BodyForgeClient.WorkoutService.updateWorkoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkoutService\BodyForgeClient.WorkoutService.Workout.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkoutService\WorkoutWebService.wsdl" />
+    <None Include="Forms\.editorconfig" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +235,113 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AuthenticationService\" />
+    <WCFMetadataStorage Include="Connected Services\ExerciseService\" />
+    <WCFMetadataStorage Include="Connected Services\MuscleService\" />
+    <WCFMetadataStorage Include="Connected Services\SessionService\" />
+    <WCFMetadataStorage Include="Connected Services\TargetService\" />
+    <WCFMetadataStorage Include="Connected Services\UserService\" />
+    <WCFMetadataStorage Include="Connected Services\WorkoutService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthenticationService\AuthenticationWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthenticationService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthenticationService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthenticationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExerciseService\ExerciseWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExerciseService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExerciseService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ExerciseService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SessionService\SessionWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SessionService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SessionService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SessionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TargetService\TargetWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TargetService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TargetService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TargetService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WorkoutService\WorkoutWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WorkoutService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WorkoutService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WorkoutService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\icons\bodybuilding_-512.ico" />
+    <None Include="Connected Services\MuscleService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\MuscleService\configuration.svcinfo" />
+    <None Include="Connected Services\MuscleService\configuration91.svcinfo" />
+    <None Include="Connected Services\MuscleService\MuscleWebService.disco" />
+    <None Include="Connected Services\UserService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\UserService\configuration.svcinfo" />
+    <None Include="Connected Services\UserService\configuration91.svcinfo" />
+    <None Include="Connected Services\UserService\UserWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

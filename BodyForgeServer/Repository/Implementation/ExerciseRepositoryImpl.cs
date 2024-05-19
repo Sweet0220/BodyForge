@@ -15,7 +15,7 @@ namespace BodyForgeServer.Repository.Implementation
 
         public Exercise getById(long id)
         {
-            Exercise exercise = _context.Exercise.First(e => e.id == id);
+            Exercise exercise = _context.Exercise.FirstOrDefault(e => e.id == id);
             if (exercise == null)
             {
                 return null;

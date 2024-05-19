@@ -22,7 +22,7 @@ namespace BodyForgeServer.Repository.Implementation
 
         public Target getById(long id)
         {
-            Target target = _context.Target.First(t => t.id == id);
+            Target target = _context.Target.FirstOrDefault(t => t.id == id);
             if (target == null)
             {
                 return null;

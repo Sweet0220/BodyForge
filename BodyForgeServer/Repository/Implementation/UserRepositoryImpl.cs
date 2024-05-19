@@ -26,7 +26,7 @@ namespace BodyForgeServer.Repository.Implementation
 
         public void deleteById(long id)
         {
-            Users user = _context.Users.First(u => u.id == id);
+            Users user = _context.Users.FirstOrDefault(u => u.id == id);
             if (user != null)
             {
                 _context.Users.Remove(user);
@@ -36,7 +36,7 @@ namespace BodyForgeServer.Repository.Implementation
 
         public Users getUserById(long id)
         {
-            Users user = _context.Users.First(u => u.id == id);
+            Users user = _context.Users.FirstOrDefault(u => u.id == id);
             if (user == null)
             {
                 return null;
@@ -46,7 +46,7 @@ namespace BodyForgeServer.Repository.Implementation
 
         public Users getUserByUsername(string username)
         {
-            Users user = _context.Users.First(u => u.username == username);
+            Users user = _context.Users.FirstOrDefault(u => u.username == username);
             if (user == null)
             {
                 return null;

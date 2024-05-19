@@ -21,5 +21,10 @@ namespace BodyForgeServer.Service
         {
             return muscleRepository.getById(id);
         }
+
+        public List<Muscle> getAll()
+        {
+            return muscleRepository.getAll();
+        }
     }
 }

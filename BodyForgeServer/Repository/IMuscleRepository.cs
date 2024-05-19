@@ -10,5 +10,6 @@ namespace BodyForgeServer.Repository
     internal interface IMuscleRepository
     {
         Muscle getById(long id);
+        List<Muscle> getAll();
     }
 }

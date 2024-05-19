@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="getById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getByIdResult" type="tns:Session" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Session">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="reps" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="weight" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="id_workout" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="id_exercise" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getByWorkoutId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="workoutId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getByWorkoutIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getByWorkoutIdResult" type="tns:ArrayOfSession" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSession">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Session" nillable="true" type="tns:Session" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="deleteById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteByIdResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="session" type="tns:Session" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="session" type="tns:Session" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getById" />
+  </wsdl:message>
+  <wsdl:message name="getByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getByWorkoutIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getByWorkoutId" />
+  </wsdl:message>
+  <wsdl:message name="getByWorkoutIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getByWorkoutIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteById" />
+  </wsdl:message>
+  <wsdl:message name="deleteByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateSoapIn">
+    <wsdl:part name="parameters" element="tns:update" />
+  </wsdl:message>
+  <wsdl:message name="updateSoapOut">
+    <wsdl:part name="parameters" element="tns:updateResponse" />
+  </wsdl:message>
+  <wsdl:message name="addSoapIn">
+    <wsdl:part name="parameters" element="tns:add" />
+  </wsdl:message>
+  <wsdl:message name="addSoapOut">
+    <wsdl:part name="parameters" element="tns:addResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SessionWebServiceSoap">
+    <wsdl:operation name="getById">
+      <wsdl:input message="tns:getByIdSoapIn" />
+      <wsdl:output message="tns:getByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getByWorkoutId">
+      <wsdl:input message="tns:getByWorkoutIdSoapIn" />
+      <wsdl:output message="tns:getByWorkoutIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteById">
+      <wsdl:input message="tns:deleteByIdSoapIn" />
+      <wsdl:output message="tns:deleteByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <wsdl:input message="tns:updateSoapIn" />
+      <wsdl:output message="tns:updateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="add">
+      <wsdl:input message="tns:addSoapIn" />
+      <wsdl:output message="tns:addSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SessionWebServiceSoap" type="tns:SessionWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getById">
+      <soap:operation soapAction="http://tempuri.org/getById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByWorkoutId">
+      <soap:operation soapAction="http://tempuri.org/getByWorkoutId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteById">
+      <soap:operation soapAction="http://tempuri.org/deleteById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <soap:operation soapAction="http://tempuri.org/update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="add">
+      <soap:operation soapAction="http://tempuri.org/add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SessionWebServiceSoap12" type="tns:SessionWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getById">
+      <soap12:operation soapAction="http://tempuri.org/getById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByWorkoutId">
+      <soap12:operation soapAction="http://tempuri.org/getByWorkoutId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteById">
+      <soap12:operation soapAction="http://tempuri.org/deleteById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <soap12:operation soapAction="http://tempuri.org/update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="add">
+      <soap12:operation soapAction="http://tempuri.org/add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SessionWebService">
+    <wsdl:port name="SessionWebServiceSoap" binding="tns:SessionWebServiceSoap">
+      <soap:address location="http://localhost:60500/WebService/SessionWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SessionWebServiceSoap12" binding="tns:SessionWebServiceSoap12">
+      <soap12:address location="http://localhost:60500/WebService/SessionWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

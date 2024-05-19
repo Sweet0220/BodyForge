@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="getById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getByIdResult" type="tns:Target" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Target">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="id_muscle" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="id_exercise" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getByExerciseId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="exerciseId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getByExerciseIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getByExerciseIdResult" type="tns:ArrayOfTarget" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTarget">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Target" nillable="true" type="tns:Target" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getByMuscleId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="muscleId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getByMuscleIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getByMuscleIdResult" type="tns:ArrayOfTarget" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getById" />
+  </wsdl:message>
+  <wsdl:message name="getByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getByExerciseIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getByExerciseId" />
+  </wsdl:message>
+  <wsdl:message name="getByExerciseIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getByExerciseIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getByMuscleIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getByMuscleId" />
+  </wsdl:message>
+  <wsdl:message name="getByMuscleIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getByMuscleIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TargetWebServiceSoap">
+    <wsdl:operation name="getById">
+      <wsdl:input message="tns:getByIdSoapIn" />
+      <wsdl:output message="tns:getByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getByExerciseId">
+      <wsdl:input message="tns:getByExerciseIdSoapIn" />
+      <wsdl:output message="tns:getByExerciseIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getByMuscleId">
+      <wsdl:input message="tns:getByMuscleIdSoapIn" />
+      <wsdl:output message="tns:getByMuscleIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TargetWebServiceSoap" type="tns:TargetWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getById">
+      <soap:operation soapAction="http://tempuri.org/getById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByExerciseId">
+      <soap:operation soapAction="http://tempuri.org/getByExerciseId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByMuscleId">
+      <soap:operation soapAction="http://tempuri.org/getByMuscleId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TargetWebServiceSoap12" type="tns:TargetWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getById">
+      <soap12:operation soapAction="http://tempuri.org/getById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByExerciseId">
+      <soap12:operation soapAction="http://tempuri.org/getByExerciseId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByMuscleId">
+      <soap12:operation soapAction="http://tempuri.org/getByMuscleId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TargetWebService">
+    <wsdl:port name="TargetWebServiceSoap" binding="tns:TargetWebServiceSoap">
+      <soap:address location="http://localhost:60500/WebService/TargetWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TargetWebServiceSoap12" binding="tns:TargetWebServiceSoap12">
+      <soap12:address location="http://localhost:60500/WebService/TargetWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

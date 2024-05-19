@@ -41,16 +41,30 @@ namespace BodyForgeServer.WebService
         }
 
         [WebMethod]
-        public string addUser(Users user)
+        public Users getByUsername(string username)
+        {
+            try
+            {
+                return userService.getByUsername(username);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        [WebMethod]
+        public bool addUser(Users user)
         {
             try
             {
                 userService.addUser(user);
-                return "User added successfully!";
+                return true;
             }
             catch (Exception ex)
             {
-                return "Error adding user.";
+                return false;
             }
         }
     }

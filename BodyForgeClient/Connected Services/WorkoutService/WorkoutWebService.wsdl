@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="getById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getByIdResult" type="tns:Workout" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Workout">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="workout_date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="duration" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="id_user" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="is_template" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getByUserIdResult" type="tns:ArrayOfWorkout" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWorkout">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Workout" nillable="true" type="tns:Workout" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getTemplatesByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTemplatesByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTemplatesByUserIdResult" type="tns:ArrayOfWorkout" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addWorkout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="workout" type="tns:Workout" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addWorkoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addWorkoutResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteWorkout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteWorkoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteWorkoutResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateWorkout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="workout" type="tns:Workout" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateWorkoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateWorkoutResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getById" />
+  </wsdl:message>
+  <wsdl:message name="getByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getByUserId" />
+  </wsdl:message>
+  <wsdl:message name="getByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTemplatesByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getTemplatesByUserId" />
+  </wsdl:message>
+  <wsdl:message name="getTemplatesByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getTemplatesByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="addWorkoutSoapIn">
+    <wsdl:part name="parameters" element="tns:addWorkout" />
+  </wsdl:message>
+  <wsdl:message name="addWorkoutSoapOut">
+    <wsdl:part name="parameters" element="tns:addWorkoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteWorkoutSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteWorkout" />
+  </wsdl:message>
+  <wsdl:message name="deleteWorkoutSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteWorkoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateWorkoutSoapIn">
+    <wsdl:part name="parameters" element="tns:updateWorkout" />
+  </wsdl:message>
+  <wsdl:message name="updateWorkoutSoapOut">
+    <wsdl:part name="parameters" element="tns:updateWorkoutResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WorkoutWebServiceSoap">
+    <wsdl:operation name="getById">
+      <wsdl:input message="tns:getByIdSoapIn" />
+      <wsdl:output message="tns:getByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getByUserId">
+      <wsdl:input message="tns:getByUserIdSoapIn" />
+      <wsdl:output message="tns:getByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTemplatesByUserId">
+      <wsdl:input message="tns:getTemplatesByUserIdSoapIn" />
+      <wsdl:output message="tns:getTemplatesByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addWorkout">
+      <wsdl:input message="tns:addWorkoutSoapIn" />
+      <wsdl:output message="tns:addWorkoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteWorkout">
+      <wsdl:input message="tns:deleteWorkoutSoapIn" />
+      <wsdl:output message="tns:deleteWorkoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateWorkout">
+      <wsdl:input message="tns:updateWorkoutSoapIn" />
+      <wsdl:output message="tns:updateWorkoutSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WorkoutWebServiceSoap" type="tns:WorkoutWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getById">
+      <soap:operation soapAction="http://tempuri.org/getById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByUserId">
+      <soap:operation soapAction="http://tempuri.org/getByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTemplatesByUserId">
+      <soap:operation soapAction="http://tempuri.org/getTemplatesByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addWorkout">
+      <soap:operation soapAction="http://tempuri.org/addWorkout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteWorkout">
+      <soap:operation soapAction="http://tempuri.org/deleteWorkout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateWorkout">
+      <soap:operation soapAction="http://tempuri.org/updateWorkout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WorkoutWebServiceSoap12" type="tns:WorkoutWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getById">
+      <soap12:operation soapAction="http://tempuri.org/getById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByUserId">
+      <soap12:operation soapAction="http://tempuri.org/getByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTemplatesByUserId">
+      <soap12:operation soapAction="http://tempuri.org/getTemplatesByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addWorkout">
+      <soap12:operation soapAction="http://tempuri.org/addWorkout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteWorkout">
+      <soap12:operation soapAction="http://tempuri.org/deleteWorkout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateWorkout">
+      <soap12:operation soapAction="http://tempuri.org/updateWorkout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WorkoutWebService">
+    <wsdl:port name="WorkoutWebServiceSoap" binding="tns:WorkoutWebServiceSoap">
+      <soap:address location="http://localhost:60500/WebService/WorkoutWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WorkoutWebServiceSoap12" binding="tns:WorkoutWebServiceSoap12">
+      <soap12:address location="http://localhost:60500/WebService/WorkoutWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

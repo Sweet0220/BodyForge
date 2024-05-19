@@ -1,5 +1,6 @@
 ﻿using BodyForgeServer.Entity;
 using BodyForgeServer.Service;
+using System.Collections.Generic;
 using System.Web.Services;
 
 namespace BodyForgeServer.WebService
@@ -25,6 +26,12 @@ namespace BodyForgeServer.WebService
         public Muscle getById(long id)
         {
             return muscleService.getById(id);
+        }
+
+        [WebMethod]
+        public List<Muscle> getAll()
+        {
+            return muscleService.getAll();
         }
     }
 }
